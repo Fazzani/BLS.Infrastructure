@@ -5,8 +5,8 @@
     <version>$version$</version>
     <authors>$author$</authors>
     <owners>$author$</owners>
-    <!--<licenseUrl>http://LICENSE_URL_HERE_OR_DELETE_THIS_LINE</licenseUrl>
-    <projectUrl>http://PROJECT_URL_HERE_OR_DELETE_THIS_LINE</projectUrl>-->
+    <!--<licenseUrl>http://LICENSE_URL_HERE_OR_DELETE_THIS_LINE</licenseUrl>-->
+    <projectUrl>https://www.nuget.org/packages/BLS.Infrastructure/</projectUrl>
     <iconUrl>http://www.businessline.fr/fr/assets/img/sliders/elastislide/6.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>$description$</description>
@@ -17,4 +17,9 @@
       <dependency id="SampleDependency" version="1.0" />
     </dependencies>-->
   </metadata>
+  <files>
+    <file src="bin\Release\BLS.Infrastructure.dll" target="lib\net45" />
+    <file src="bin\Release\Repository.Pattern.dll" target="lib\net45" />
+    <file src="bin\Release\Repository.Pattern.Ef6.dll" target="lib\net45" />
+  </files>
 </package>
