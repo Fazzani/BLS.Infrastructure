@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Data;
-using Repository.Pattern.Infrastructure;
-using Repository.Pattern.Repositories;
+using BLS.Infrastructure.Infrastructure;
+using BLS.Infrastructure.Repositories;
 
-namespace Repository.Pattern.UnitOfWork
+namespace BLS.Infrastructure.UnitOfWork
 {
     public interface IUnitOfWork : IDisposable
     {

@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Linq.Expressions;
 using LinqKit;
-using Repository.Pattern.Repositories;
+using BLS.Infrastructure.Repositories;
 
-namespace Repository.Pattern.Ef6
+namespace BLS.Infrastructure.Ef6
 {
     public abstract class QueryObject<TEntity> : IQueryObject<TEntity>
     {

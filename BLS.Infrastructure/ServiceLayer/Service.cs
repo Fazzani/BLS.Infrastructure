@@ -4,10 +4,11 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Threading;
 using System.Threading.Tasks;
-using Repository.Pattern.Infrastructure;
-using Repository.Pattern.Repositories;
+using BLS.Infrastructure;
+using BLS.Infrastructure.Infrastructure;
+using BLS.Infrastructure.Repositories;
 
-namespace Service.Pattern
+namespace BLS.Infrastructure.ServiceLayer
 {
     public abstract class Service<TEntity> : IService<TEntity> where TEntity : class, IObjectState
     {

@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using Repository.Pattern.Infrastructure;
+using BLS.Infrastructure.Infrastructure;
 
-namespace Repository.Pattern.Repositories
+namespace BLS.Infrastructure.Repositories
 {
     public interface IRepository<TEntity> where TEntity : class, IObjectState
     {

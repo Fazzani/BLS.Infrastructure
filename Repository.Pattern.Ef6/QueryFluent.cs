@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
-using Repository.Pattern.Infrastructure;
-using Repository.Pattern.Repositories;
+using BLS.Infrastructure.Infrastructure;
+using BLS.Infrastructure.Repositories;
 
-namespace Repository.Pattern.Ef6
+namespace BLS.Infrastructure.Ef6
 {
     public sealed class QueryFluent<TEntity> : IQueryFluent<TEntity> where TEntity : class, IObjectState
     {

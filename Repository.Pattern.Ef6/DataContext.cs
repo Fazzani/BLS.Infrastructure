@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Threading;
 using System.Threading.Tasks;
-using Repository.Pattern.DataContext;
-using Repository.Pattern.Infrastructure;
+using BLS.Infrastructure.DataContext;
+using BLS.Infrastructure.Infrastructure;
 
-namespace Repository.Pattern.Ef6
+namespace BLS.Infrastructure.Ef6
 {
     public class DataContext : DbContext, IDataContextAsync
     {

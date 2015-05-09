@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Data.Entity;
-using Repository.Pattern.Infrastructure;
+using BLS.Infrastructure.Infrastructure;
 
-namespace Repository.Pattern.Ef6
+namespace BLS.Infrastructure.Ef6
 {
     public class StateHelper
     {

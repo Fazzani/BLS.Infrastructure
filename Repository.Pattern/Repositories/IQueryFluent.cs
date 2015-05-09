@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
-using Repository.Pattern.Infrastructure;
+using BLS.Infrastructure.Infrastructure;
 
-namespace Repository.Pattern.Repositories
+namespace BLS.Infrastructure.Repositories
 {
     public interface IQueryFluent<TEntity> where TEntity : IObjectState
     {

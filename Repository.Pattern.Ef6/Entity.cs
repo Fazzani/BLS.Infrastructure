@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
-using Repository.Pattern.Infrastructure;
+using BLS.Infrastructure.Infrastructure;
 
-namespace Repository.Pattern.Ef6
+namespace BLS.Infrastructure.Ef6
 {
     public abstract class Entity : IObjectState
     {

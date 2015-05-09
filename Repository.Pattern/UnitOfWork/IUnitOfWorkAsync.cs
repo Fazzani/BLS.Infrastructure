@@ -1,9 +1,9 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
-using Repository.Pattern.Infrastructure;
-using Repository.Pattern.Repositories;
+using BLS.Infrastructure.Infrastructure;
+using BLS.Infrastructure.Repositories;
 
-namespace Repository.Pattern.UnitOfWork
+namespace BLS.Infrastructure.UnitOfWork
 {
     public interface IUnitOfWorkAsync : IUnitOfWork
     {

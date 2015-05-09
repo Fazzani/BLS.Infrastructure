@@ -1,4 +1,4 @@
-﻿namespace Repository.Pattern.Infrastructure
+﻿namespace BLS.Infrastructure.Infrastructure
 {
     public enum ObjectState
     {

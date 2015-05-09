@@ -10,14 +10,14 @@ using System.Data.Entity.Infrastructure;
 using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.Practices.ServiceLocation;
-using Repository.Pattern.DataContext;
-using Repository.Pattern.Infrastructure;
-using Repository.Pattern.Repositories;
-using Repository.Pattern.UnitOfWork;
+using BLS.Infrastructure.DataContext;
+using BLS.Infrastructure.Infrastructure;
+using BLS.Infrastructure.Repositories;
+using BLS.Infrastructure.UnitOfWork;
 
 #endregion
 
-namespace Repository.Pattern.Ef6
+namespace BLS.Infrastructure.Ef6
 {
     public class UnitOfWork : IUnitOfWorkAsync
     {

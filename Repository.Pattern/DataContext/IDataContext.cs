@@ -1,7 +1,7 @@
 ﻿using System;
-using Repository.Pattern.Infrastructure;
+using BLS.Infrastructure.Infrastructure;
 
-namespace Repository.Pattern.DataContext
+namespace BLS.Infrastructure.DataContext
 {
     public interface IDataContext : IDisposable
     {

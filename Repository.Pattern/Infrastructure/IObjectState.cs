@@ -1,7 +1,7 @@
 ﻿
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Repository.Pattern.Infrastructure
+namespace BLS.Infrastructure.Infrastructure
 {
     public interface IObjectState
     {

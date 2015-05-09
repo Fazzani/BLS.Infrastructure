@@ -1,7 +1,7 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
 
-namespace Repository.Pattern.DataContext
+namespace BLS.Infrastructure.DataContext
 {
     public interface IDataContextAsync : IDataContext
     {
