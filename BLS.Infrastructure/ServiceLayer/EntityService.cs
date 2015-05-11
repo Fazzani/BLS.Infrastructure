@@ -10,14 +10,14 @@ using BLS.Infrastructure.Repositories;
 
 namespace BLS.Infrastructure.ServiceLayer
 {
-    public abstract class Service<TEntity> : IService<TEntity> where TEntity : class, IObjectState
+    public abstract class EntityService<TEntity> : IEntityService<TEntity> where TEntity : class, IObjectState
     {
         #region Private Fields
         private readonly IRepositoryAsync<TEntity> _repository;
         #endregion Private Fields
 
         #region Constructor
-        protected Service(IRepositoryAsync<TEntity> repository) { _repository = repository; }
+        protected EntityService(IRepositoryAsync<TEntity> repository) { _repository = repository; }
         #endregion Constructor
 
         public virtual TEntity Find(params object[] keyValues) { return _repository.Find(keyValues); }

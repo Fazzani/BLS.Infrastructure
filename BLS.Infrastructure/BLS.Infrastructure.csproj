@@ -49,8 +49,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ServiceLayer\IEntityService.cs" />
+    <Compile Include="ServiceLayer\EntityService.cs" />
     <Compile Include="ServiceLayer\IService.cs" />
-    <Compile Include="ServiceLayer\Service.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -86,8 +87,8 @@
   <PropertyGroup>
     <PostBuildEvent>if $(ConfigurationName) == Release (
 del $(TargetDir)*.nupkg
-"D:\NuGet.exe" pack "$(ProjectPath)" -Properties Configuration=Release -Verbosity detailed
-"D:\NuGet.exe" push "$(TargetDir)BLS.Infrastructure.@(VersionNumber).nupkg" 440bc87f-c8b3-4410-b57b-192c649bcadd -src https://www.nuget.org
+"C:\NuGet.exe" pack "$(ProjectPath)" -Properties Configuration=Release -Verbosity detailed
+"C:\NuGet.exe" push "$(TargetDir)BLS.Infrastructure.@(VersionNumber).nupkg" 440bc87f-c8b3-4410-b57b-192c649bcadd -src https://www.nuget.org
 )</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
