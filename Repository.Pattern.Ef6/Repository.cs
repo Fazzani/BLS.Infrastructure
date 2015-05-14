@@ -174,7 +174,7 @@ namespace BLS.Infrastructure.Ef6
       }
       if (stringIncludes != null)
       {
-        stringIncludes.ForEach(x => { query = query.AsExpandable().Include(x); });
+        query = stringIncludes.Aggregate(query, (current, include) => current.Include(include));
       }
       if (orderBy != null)
       {

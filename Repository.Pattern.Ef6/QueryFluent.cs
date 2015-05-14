@@ -23,11 +23,17 @@ namespace BLS.Infrastructure.Ef6
     {
       _repository = repository;
       _includes = new List<Expression<Func<TEntity, object>>>();
+      _stringInclude = new List<string>();
     }
 
-    public QueryFluent(Repository<TEntity> repository, IQueryObject<TEntity> queryObject) : this(repository) { _expression = queryObject.Query(); }
+    public QueryFluent(Repository<TEntity> repository, IQueryObject<TEntity> queryObject) : this(repository) { _expression = queryObject.Query();
+    _stringInclude = new List<string>();
+    }
 
-    public QueryFluent(Repository<TEntity> repository, Expression<Func<TEntity, bool>> expression) : this(repository) { _expression = expression; }
+    public QueryFluent(Repository<TEntity> repository, Expression<Func<TEntity, bool>> expression) : this(repository) { 
+      _expression = expression;
+      _stringInclude = new List<string>();
+    }
     #endregion Constructors
 
     public IQueryFluent<TEntity> OrderBy(Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy)
@@ -54,11 +60,11 @@ namespace BLS.Infrastructure.Ef6
       return _repository.Select(_expression, _orderBy, _includes,_stringInclude, page, pageSize);
     }
 
-    public IEnumerable<TEntity> Select() { return _repository.Select(_expression, _orderBy, _includes); }
+    public IEnumerable<TEntity> Select() { return _repository.Select(_expression, _orderBy, _includes, _stringInclude); }
 
-    public IEnumerable<TResult> Select<TResult>(Expression<Func<TEntity, TResult>> selector) { return _repository.Select(_expression, _orderBy, _includes).Select(selector); }
+    public IEnumerable<TResult> Select<TResult>(Expression<Func<TEntity, TResult>> selector) { return _repository.Select(_expression, _orderBy, _includes, _stringInclude).Select(selector); }
 
-    public async Task<IEnumerable<TEntity>> SelectAsync() { return await _repository.SelectAsync(_expression, _orderBy, _includes); }
+    public async Task<IEnumerable<TEntity>> SelectAsync() { return await _repository.SelectAsync(_expression, _orderBy, _includes,_stringInclude); }
 
     public IQueryable<TEntity> SqlQuery(string query, params object[] parameters) { return _repository.SelectQuery(query, parameters).AsQueryable(); }
   }
