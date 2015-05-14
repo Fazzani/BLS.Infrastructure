@@ -13,9 +13,9 @@
     <releaseNotes>First version contains global Dal's functions</releaseNotes>
     <copyright>Copyright 2015</copyright>
     <tags>Infrastructure Common outils utilitaires</tags>
-    <!--<dependencies>
-      <dependency id="SampleDependency" version="1.0" />
-    </dependencies>-->
+    <dependencies>
+      <dependency id="LinqKit" version="[1.1.1]" />
+    </dependencies>
   </metadata>
   <files>
     <file src="bin\Release\BLS.Infrastructure.dll" target="lib\net45" />

@@ -15,8 +15,9 @@ namespace BLS.Infrastructure.Interceptors
     {
         public IEnumerable<Type> GetRequiredInterfaces()
         {
-            throw new NotImplementedException();
+          return Type.EmptyTypes;
         }
+
         const string message = "An unknown error has occurred at database level while processing your request. Please contact Technical Help Desk with this identifier {0}";
 
         public IMethodReturn Invoke(IMethodInvocation input, GetNextInterceptionBehaviorDelegate getNext)
