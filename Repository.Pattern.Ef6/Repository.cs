@@ -63,9 +63,15 @@ namespace BLS.Infrastructure.Ef6
       return _dbSet.SqlQuery(query, parameters).AsQueryable();
     }
 
+    public virtual void Add(TEntity entity)
+    {
+      _dbSet.Add(entity);
+      _context.SyncObjectState(entity);
+    }
+
     public virtual void Insert(TEntity entity)
     {
-      entity.ObjectState = ObjectState.Added; ;
+      entity.ObjectState = ObjectState.Added;
       _dbSet.Attach(entity);
       _context.SyncObjectState(entity);
     }

@@ -10,6 +10,7 @@ namespace BLS.Infrastructure.Repositories
     {
         TEntity Find(params object[] keyValues);
         IQueryable<TEntity> SelectQuery(string query, params object[] parameters);
+        void Add(TEntity entity);
         void Insert(TEntity entity);
         void InsertRange(IEnumerable<TEntity> entities);
         void InsertOrUpdateGraph(TEntity entity);
