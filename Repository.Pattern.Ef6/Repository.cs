@@ -63,9 +63,15 @@ namespace BLS.Infrastructure.Ef6
             return _dbSet.SqlQuery(query, parameters).AsQueryable();
         }
 
+    public virtual void Add(TEntity entity)
+    {
+      _dbSet.Add(entity);
+      _context.SyncObjectState(entity);
+    }
+
         public virtual void Insert(TEntity entity)
         {
-            entity.ObjectState = ObjectState.Added;
+      entity.ObjectState = ObjectState.Added;
             _dbSet.Attach(entity);
             _context.SyncObjectState(entity);
         }
@@ -162,6 +168,7 @@ namespace BLS.Infrastructure.Ef6
             Expression<Func<TEntity, bool>> filter = null,
             Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy = null,
             List<Expression<Func<TEntity, object>>> includes = null,
+        List<string> stringIncludes = null,
             int? page = null,
             int? pageSize = null)
         {
@@ -171,6 +178,10 @@ namespace BLS.Infrastructure.Ef6
             {
                 query = includes.Aggregate(query, (current, include) => current.Include(include));
             }
+      if (stringIncludes != null)
+      {
+        query = stringIncludes.Aggregate(query, (current, include) => current.Include(include));
+      }
             if (orderBy != null)
             {
                 query = orderBy(query);
@@ -181,7 +192,7 @@ namespace BLS.Infrastructure.Ef6
             }
             if (page != null && pageSize != null)
             {
-                query = query.Skip((page.Value - 1)*pageSize.Value).Take(pageSize.Value);
+        query = query.Skip((page.Value - 1) * pageSize.Value).Take(pageSize.Value);
             }
             return query;
         }
@@ -190,10 +201,11 @@ namespace BLS.Infrastructure.Ef6
             Expression<Func<TEntity, bool>> filter = null,
             Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy = null,
             List<Expression<Func<TEntity, object>>> includes = null,
+        List<string> stringIncludes = null,
             int? page = null,
             int? pageSize = null)
         {
-            return await Select(filter, orderBy, includes, page, pageSize).ToListAsync();
+      return await Select(filter, orderBy, includes, stringIncludes, page, pageSize).ToListAsync();
         }
 
         public virtual void InsertOrUpdateGraph(TEntity entity)
@@ -207,7 +219,7 @@ namespace BLS.Infrastructure.Ef6
 
         private void SyncObjectGraph(object entity) // scan object graph for all 
         {
-            if(_entitesChecked == null)
+      if (_entitesChecked == null)
                 _entitesChecked = new HashSet<object>();
 
             if (_entitesChecked.Contains(entity))
@@ -227,8 +239,8 @@ namespace BLS.Infrastructure.Ef6
                 var trackableRef = prop.GetValue(entity, null) as IObjectState;
                 if (trackableRef != null)
                 {
-                    if(trackableRef.ObjectState == ObjectState.Added)
-                        _context.SyncObjectState((IObjectState) entity);
+          if (trackableRef.ObjectState == ObjectState.Added)
+            _context.SyncObjectState((IObjectState)entity);
 
                     SyncObjectGraph(prop.GetValue(entity, null));
                 }

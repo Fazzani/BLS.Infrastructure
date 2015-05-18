@@ -1,6 +1,4 @@
-﻿#region
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.Design;
 using System.Data;
@@ -14,8 +12,6 @@ using BLS.Infrastructure.DataContext;
 using BLS.Infrastructure.Infrastructure;
 using BLS.Infrastructure.Repositories;
 using BLS.Infrastructure.UnitOfWork;
-
-#endregion
 
 namespace BLS.Infrastructure.Ef6
 {
