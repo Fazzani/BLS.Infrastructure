@@ -80,6 +80,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Extentions\ObjectExtentions.cs" />
     <Compile Include="Properties\AssemblyFileVersion.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -139,7 +140,7 @@
     <PostBuildEvent>if $(ConfigurationName) == Release (
 del $(TargetDir)*.nupkg
 "C:\Nuget\nuget.exe" pack "$(ProjectPath)" -Properties Configuration=Release -Verbosity detailed
-"C:\NuGet.exe" push "$(TargetDir)BLS.Infrastructure.@(VersionNumber).nupkg" 440bc87f-c8b3-4410-b57b-192c649bcadd -src https://www.nuget.org
+"C:\Nuget\nuget.exe" push "$(TargetDir)BLS.Infrastructure.@(VersionNumber).nupkg" 440bc87f-c8b3-4410-b57b-192c649bcadd -src https://www.nuget.org
 )</PostBuildEvent>
   </PropertyGroup>
   <PropertyGroup>

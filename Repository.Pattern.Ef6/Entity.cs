@@ -1,8 +1,10 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using System;
+using System.ComponentModel.DataAnnotations.Schema;
 using BLS.Infrastructure.Infrastructure;
 
 namespace BLS.Infrastructure.Ef6
 {
+    [Serializable]
     public abstract class Entity : IObjectState
     {
         [NotMapped]
