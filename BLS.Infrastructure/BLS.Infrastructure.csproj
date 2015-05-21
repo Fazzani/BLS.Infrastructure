@@ -141,7 +141,7 @@
   <PropertyGroup>
     <PostBuildEvent>if $(ConfigurationName) == Release (
 del $(TargetDir)*.nupkg
-"C:\NuGet.exe" pack "$(ProjectPath)" -Properties Configuration=Release -Verbosity detailed
+"C:\Nuget\nuget.exe" pack "$(ProjectPath)" -Properties Configuration=Release -Verbosity detailed
 "C:\NuGet.exe" push "$(TargetDir)BLS.Infrastructure.@(VersionNumber).nupkg" 440bc87f-c8b3-4410-b57b-192c649bcadd -src https://www.nuget.org
 )</PostBuildEvent>
   </PropertyGroup>
