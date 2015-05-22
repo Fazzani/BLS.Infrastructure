@@ -10,7 +10,9 @@ namespace BLS.Infrastructure.Exceptions
     /// This is used by the Exception Handling block to replace the original exception with a user friendly message such as 
     /// “An unknown error has occurred at User Interface while processing your request. Please contact Technical Help Desk with this identifier XXXXXXXXXXXXXX”
     /// </summary>
-    public class UserInterfaceException: BaseException
+    public class UIException : BaseException
     {
+        public string Id { get; set; }
+        public string Title { get; set; }
     }
 }

@@ -93,7 +93,7 @@
     <Compile Include="Exceptions\DataAccessCustomException.cs" />
     <Compile Include="Exceptions\DataAccessException.cs" />
     <Compile Include="Exceptions\PassThroughException.cs" />
-    <Compile Include="Exceptions\UserInterfaceException.cs" />
+    <Compile Include="Exceptions\UIException.cs" />
     <Compile Include="Interceptors\LoggerInterceptor.cs" />
     <Compile Include="ServiceLayer\IEntityService.cs" />
     <Compile Include="ServiceLayer\EntityService.cs" />
