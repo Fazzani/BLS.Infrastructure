@@ -12,7 +12,14 @@ namespace BLS.Infrastructure.Exceptions
     /// </summary>
     public class UIException : BaseException
     {
-        public string Id { get; set; }
-        public string Title { get; set; }
+        public UIException(string code)
+        {
+            Code = code;
+        }
+
+        /// <summary>
+        /// Exception code
+        /// </summary>
+        public string Code { get; set; }
     }
 }
