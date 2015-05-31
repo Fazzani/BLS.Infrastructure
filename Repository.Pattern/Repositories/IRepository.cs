@@ -23,5 +23,7 @@ namespace BLS.Infrastructure.Repositories
         IQueryFluent<TEntity> Query();
         IQueryable<TEntity> Queryable();
         IRepository<T> GetRepository<T>() where T : class, IObjectState;
+        void RemoveRange(ICollection<TEntity> list);
+        void Remove(TEntity entity);
     }
 }

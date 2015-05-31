@@ -108,6 +108,16 @@ namespace BLS.Infrastructure.Ef6
             _context.SyncObjectState(entity);
         }
 
+        public virtual void RemoveRange(ICollection<TEntity> list)
+        {
+            _dbSet.RemoveRange(list);
+        }
+
+        public virtual void Remove(TEntity entity)
+        {
+            _dbSet.Remove(entity);
+        }
+
         public IQueryFluent<TEntity> Query()
         {
             return new QueryFluent<TEntity>(this);
