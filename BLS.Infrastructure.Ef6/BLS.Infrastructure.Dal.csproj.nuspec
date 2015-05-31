@@ -1,17 +1,17 @@
 <?xml version="1.0"?>
 <package >
   <metadata>
-    <id>BLS.Infrastructure</id>
+    <id>BLS.Infrastructure.Dal</id>
     <version>$version$</version>
     <authors>$author$</authors>
     <owners>$author$</owners>
     <!--<licenseUrl>http://LICENSE_URL_HERE_OR_DELETE_THIS_LINE</licenseUrl>-->
-    <projectUrl>https://www.nuget.org/packages/BLS.Infrastructure/</projectUrl>
+    <projectUrl>https://www.nuget.org/packages/BLS.Infrastructure.dal/</projectUrl>
     <iconUrl>http://www.businessline.fr/fr/assets/img/sliders/elastislide/6.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>$description$</description>
-    <releaseNotes>First version contains global tools</releaseNotes>
+    <releaseNotes>First version contains global Dal's functions</releaseNotes>
     <copyright>Copyright 2015</copyright>
-    <tags>Infrastructure Common outils utilitaires</tags>
+    <tags>Infrastructure DataLayer</tags>
   </metadata>
 </package>
