@@ -85,6 +85,8 @@
     <Compile Include="Extentions\Enum\EnumExtention.cs" />
     <Compile Include="Extentions\ObjectExtentions.cs" />
     <Compile Include="Interceptors\HandlerAttributes\CacheHandlerAttribute.cs" />
+    <Compile Include="Mvc\Model\BaseModel.cs" />
+    <Compile Include="Mvc\Model\IModel.cs" />
     <Compile Include="Properties\AssemblyFileVersion.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
