@@ -63,7 +63,10 @@ namespace BLS.Infrastructure.Interceptors.HandlerAttributes
       if (HttpContext.Current.Request.Cookies.AllKeys.Contains(CookieName))
         _isDirty = HttpContext.Current.Request.Cookies[CookieName].Value == Key;
       if (_isDirty)
+      {
+        HttpContext.Current.Response.Cookies[CookieName].Path = HttpContext.Current.Request.ApplicationPath;
         HttpContext.Current.Response.Cookies[CookieName].Expires = DateTime.Now.AddDays(-1);
+      }
       if (item != null && !_isDirty)
         return input.CreateMethodReturn(item);
       IMethodReturn result = getNext()(input, getNext);
