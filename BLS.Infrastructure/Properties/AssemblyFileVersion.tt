@@ -5,7 +5,7 @@
      int major = 1; 
      int minor = 0; 
      int build = 13; 
-     int revision = 7; 
+     int revision = 43; 
      try
      {
          using(var f = File.OpenText(Host.ResolvePath("AssemblyFileVersion.cs")))
@@ -32,8 +32,8 @@
      {
          major = 1; 
          minor = 0; 
-         build = 0; 
-         revision = 0; 
+         build = 13; 
+         revision = 50; 
      }
  #>
  //<#= major #>

@@ -26,6 +26,14 @@ namespace BLS.Infrastructure.Ef6
     private readonly DbSet<TEntity> _dbSet;
     private readonly IUnitOfWorkAsync _unitOfWork;
 
+    public DbSet<TEntity> DbSet
+    {
+      get
+      {
+        return _dbSet;
+      }
+    }
+
     #endregion Private Fields
 
     public Repository(IDataContextAsync context, IUnitOfWorkAsync unitOfWork)
@@ -58,6 +66,7 @@ namespace BLS.Infrastructure.Ef6
 
     public virtual IQueryable<TEntity> SelectQuery(string query, params object[] parameters)
     {
+      
       return _dbSet.SqlQuery(query, parameters).AsQueryable();
     }
 
