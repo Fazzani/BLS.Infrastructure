@@ -10,7 +10,7 @@
      {
          using(var f = File.OpenText(Host.ResolvePath("AssemblyFileVersion.cs")))
          {
-			string line = f.ReadLine();
+			string line = string.Empty;
 			do
 			{
 				line=f.ReadLine();

@@ -17,23 +17,23 @@ namespace BLS.Infrastructure.Interceptors.HandlerAttributes
   [AttributeUsage(AttributeTargets.Method, AllowMultiple = false, Inherited = false)]
   public class CacheHandlerAttribute : HandlerAttribute
   {
-    private readonly string _key;
-    private readonly string _cookieName;
 
-    public CacheHandlerAttribute(string key, string cookieName)
+    private readonly string _key;
+
+    public CacheHandlerAttribute(string key)
     {
       _key = key;
-      _cookieName = cookieName;
     }
 
     public override ICallHandler CreateHandler(IUnityContainer container)
     {
-      return new CachingCallHandler() { Key = _key, CookieName = _cookieName };
+      return new CachingCallHandler() { Key = _key};
     }
   }
 
   public class CachingCallHandler : ICallHandler
   {
+    public static event EventHandler CacheInvalidated;
     readonly ObjectCache Cache = MemoryCache.Default;
     readonly System.Web.Caching.Cache _cacheWeb;
 
@@ -60,18 +60,28 @@ namespace BLS.Infrastructure.Interceptors.HandlerAttributes
     {
       //Before invoking the method on the original target
       var item = _cacheWeb.Get(Key);
-      if (HttpContext.Current.Request.Cookies.AllKeys.Contains(CookieName))
-        _isDirty = HttpContext.Current.Request.Cookies[CookieName].Value == Key;
+
+      if (HttpContext.Current.ApplicationInstance.Application.AllKeys.Contains(Key))
+        _isDirty = HttpContext.Current.ApplicationInstance.Application[Key].ToString().Equals(Key);
+
       if (_isDirty)
       {
-        HttpContext.Current.Response.Cookies[CookieName].Path = HttpContext.Current.Request.ApplicationPath;
-        HttpContext.Current.Response.Cookies[CookieName].Expires = DateTime.Now.AddDays(-1);
+        HttpContext.Current.ApplicationInstance.Application.Remove(Key);
+        OnCacheInvalidated(new CacheInvalidateEventArgs { Key = Key });
       }
+
       if (item != null && !_isDirty)
         return input.CreateMethodReturn(item);
       IMethodReturn result = getNext()(input, getNext);
       _cacheWeb[Key] = result.ReturnValue;
       return result;
+    }
+
+    public static void OnCacheInvalidated(CacheInvalidateEventArgs e)
+    {
+      EventHandler handler = CacheInvalidated;
+      if (handler != null)
+        handler(null, e);
     }
 
     /// <summary>
@@ -94,11 +104,7 @@ namespace BLS.Infrastructure.Interceptors.HandlerAttributes
     }
 
     private bool _isDirty = false;
-    public string CookieName
-    {
-      get;
-      set;
-    }
+  
     public string Key
     {
       get;
@@ -110,6 +116,15 @@ namespace BLS.Infrastructure.Interceptors.HandlerAttributes
       get;
       set;
     }
+  }
+
+
+  public class CacheInvalidateEventArgs : EventArgs
+  {
+    /// <summary>
+    /// Invalidate Key cache
+    /// </summary>
+    public string  Key { get; set; }
   }
 
 }

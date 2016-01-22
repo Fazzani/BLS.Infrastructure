@@ -5,12 +5,12 @@
      int major = 1; 
      int minor = 0; 
      int build = 13; 
-     int revision = 43; 
+     int revision = 53; 
      try
      {
          using(var f = File.OpenText(Host.ResolvePath("AssemblyFileVersion.cs")))
          {
-			string line = f.ReadLine();
+			string line = string.Empty;
 			do
 			{
 				line=f.ReadLine();
@@ -30,10 +30,11 @@
      }
      catch(Exception e)
      {
+	 
          major = 1; 
          minor = 0; 
          build = 13; 
-         revision = 51; 
+         revision = 53; 
      }
  #>
  //<#= major #>
